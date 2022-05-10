@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B929D6912829595F00B1C952 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B929D6902829595F00B1C952 /* ImagePicker.swift */; };
 		B9FF2DCC28278F6500D17523 /* WadiloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF2DCB28278F6500D17523 /* WadiloApp.swift */; };
 		B9FF2DCE28278F6500D17523 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF2DCD28278F6500D17523 /* ContentView.swift */; };
 		B9FF2DD028278F6600D17523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9FF2DCF28278F6600D17523 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B929D6902829595F00B1C952 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B9FF2DC828278F6500D17523 /* Wadilo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wadilo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FF2DCB28278F6500D17523 /* WadiloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WadiloApp.swift; sourceTree = "<group>"; };
 		B9FF2DCD28278F6500D17523 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +43,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B929D68E2829523700B1C952 /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				B9FF2DE12827929300D17523 /* ShortcutButtonView.swift */,
+				B9FF2DE32827975600D17523 /* ShortcutManager.swift */,
+				B9FF2DDF2827909C00D17523 /* SiriShortcutViewController.swift */,
+			);
+			path = Siri;
+			sourceTree = "<group>";
+		};
+		B929D68F282957F400B1C952 /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B929D6902829595F00B1C952 /* ImagePicker.swift */,
+			);
+			path = PhotoPicker;
+			sourceTree = "<group>";
+		};
 		B9FF2DBF28278F6500D17523 = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +80,13 @@
 		B9FF2DCA28278F6500D17523 /* Wadilo */ = {
 			isa = PBXGroup;
 			children = (
+				B929D68F282957F400B1C952 /* PhotoPicker */,
+				B929D68E2829523700B1C952 /* Siri */,
 				B9FF2DE72827ABD900D17523 /* Info.plist */,
 				B9FF2DCB28278F6500D17523 /* WadiloApp.swift */,
 				B9FF2DCD28278F6500D17523 /* ContentView.swift */,
-				B9FF2DE12827929300D17523 /* ShortcutButtonView.swift */,
-				B9FF2DDF2827909C00D17523 /* SiriShortcutViewController.swift */,
 				B9FF2DCF28278F6600D17523 /* Assets.xcassets */,
 				B9FF2DD128278F6600D17523 /* Preview Content */,
-				B9FF2DE32827975600D17523 /* ShortcutManager.swift */,
 				B9FF2DE52827AAAC00D17523 /* VoiceAssistant.intentdefinition */,
 			);
 			path = Wadilo;
@@ -154,6 +173,7 @@
 				B9FF2DCE28278F6500D17523 /* ContentView.swift in Sources */,
 				B9FF2DCC28278F6500D17523 /* WadiloApp.swift in Sources */,
 				B9FF2DE22827929300D17523 /* ShortcutButtonView.swift in Sources */,
+				B929D6912829595F00B1C952 /* ImagePicker.swift in Sources */,
 				B9FF2DE02827909C00D17523 /* SiriShortcutViewController.swift in Sources */,
 				B9FF2DE62827AAAC00D17523 /* VoiceAssistant.intentdefinition in Sources */,
 				B9FF2DE42827975600D17523 /* ShortcutManager.swift in Sources */,
@@ -282,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wadilo/Preview Content\"";
@@ -301,6 +322,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.tyuanhawk.Wadilo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,6 +334,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wadilo/Preview Content\"";
@@ -331,6 +354,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.tyuanhawk.Wadilo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

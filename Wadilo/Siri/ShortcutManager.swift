@@ -13,18 +13,21 @@ public final class ShortcutManager {
      Replace this with your own shortcuts.
      */
     public enum Shortcut {
-        case test
+        case key
+        case cane
 
         var defaultsKey: String {
             switch self {
-            case .test: return "Test command"
+            case .key: return "Find my key"
+            case .cane: return "Find my cane"
             }
         }
 
         var intent: INIntent {
             let intent: INIntent
             switch self {
-            case .test: intent = VoiceAssistantIntent()
+            case .key: intent = VoiceAssistantIntent()
+            case .cane: intent = VoiceAssistantIntent()
             }
 
             print("Running")
@@ -35,7 +38,8 @@ public final class ShortcutManager {
 
         var suggestedInvocationPhrase: String? {
             switch self {
-            case .test: return "Test command"
+            case .key: return "Find my key"
+            case .cane: return "Find my cane"
             }
         }
     }
