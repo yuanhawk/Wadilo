@@ -22,7 +22,7 @@ struct ContentView: View {
             
             HStack {
                 VStack {
-                    SiriButtonView(shortcut: ShortcutManager.Shortcut.test)
+                    SiriButtonView(shortcut: ShortcutManager.Shortcut.key)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
                 .padding(.horizontal)

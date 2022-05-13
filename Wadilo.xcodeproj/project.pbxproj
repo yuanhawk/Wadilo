@@ -16,6 +16,8 @@
 		B9FF2DE22827929300D17523 /* ShortcutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF2DE12827929300D17523 /* ShortcutButtonView.swift */; };
 		B9FF2DE42827975600D17523 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF2DE32827975600D17523 /* ShortcutManager.swift */; };
 		B9FF2DE62827AAAC00D17523 /* VoiceAssistant.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B9FF2DE52827AAAC00D17523 /* VoiceAssistant.intentdefinition */; };
+		CBA4073B282ED0E1009B9269 /* Wadilo_ML 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CBA4073A282ED0E1009B9269 /* Wadilo_ML 1.mlmodel */; };
+		CBA4073E282ED8CA009B9269 /* ImagePredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA4073D282ED8CA009B9269 /* ImagePredictor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		B9FF2DE32827975600D17523 /* ShortcutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutManager.swift; sourceTree = "<group>"; };
 		B9FF2DE52827AAAC00D17523 /* VoiceAssistant.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = VoiceAssistant.intentdefinition; sourceTree = "<group>"; };
 		B9FF2DE72827ABD900D17523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CBA4073A282ED0E1009B9269 /* Wadilo_ML 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Wadilo_ML 1.mlmodel"; sourceTree = "<group>"; };
+		CBA4073D282ED8CA009B9269 /* ImagePredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePredictor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 		B9FF2DCA28278F6500D17523 /* Wadilo */ = {
 			isa = PBXGroup;
 			children = (
+				CBA4073C282ED310009B9269 /* ImagePredictor */,
+				CBA4073A282ED0E1009B9269 /* Wadilo_ML 1.mlmodel */,
 				B929D68F282957F400B1C952 /* PhotoPicker */,
 				B929D68E2829523700B1C952 /* Siri */,
 				B9FF2DE72827ABD900D17523 /* Info.plist */,
@@ -98,6 +104,14 @@
 				B9FF2DD228278F6600D17523 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CBA4073C282ED310009B9269 /* ImagePredictor */ = {
+			isa = PBXGroup;
+			children = (
+				CBA4073D282ED8CA009B9269 /* ImagePredictor.swift */,
+			);
+			name = ImagePredictor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,8 +188,10 @@
 				B9FF2DCC28278F6500D17523 /* WadiloApp.swift in Sources */,
 				B9FF2DE22827929300D17523 /* ShortcutButtonView.swift in Sources */,
 				B929D6912829595F00B1C952 /* ImagePicker.swift in Sources */,
+				CBA4073B282ED0E1009B9269 /* Wadilo_ML 1.mlmodel in Sources */,
 				B9FF2DE02827909C00D17523 /* SiriShortcutViewController.swift in Sources */,
 				B9FF2DE62827AAAC00D17523 /* VoiceAssistant.intentdefinition in Sources */,
+				CBA4073E282ED8CA009B9269 /* ImagePredictor.swift in Sources */,
 				B9FF2DE42827975600D17523 /* ShortcutManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,10 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var selectedImage: UIImage
     @Environment(\.presentationMode) private var presentationMode
+    
+    /// The delegate method UIKit calls when the user selects a photo from the library.
+    /// - Parameters:
+    ///   - context: Representative context
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         
@@ -45,6 +49,10 @@ struct ImagePicker: UIViewControllerRepresentable {
             
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 parent.selectedImage = image
+                print("An image is selected");
+                
+                // add ml implementation here
+                
             }
             
             parent.presentationMode.wrappedValue.dismiss()
