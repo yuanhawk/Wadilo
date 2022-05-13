@@ -1,43 +1,51 @@
-//
-//  ImagePredictor.swift
-//  Wadilo
-//
-//  Created by caramel melmel on 14/5/22.
-//
-/* Abstract:
-Make predictions from images for the cases of finding a cane
- */
+/*
+See LICENSE folder for this sample’s licensing information.
 
-import Foundation
-import CoreML
+Abstract:
+Makes predictions from images using the MobileNet model.
+*/
+
 import Vision
+import UIKit
 
-struct ImagePredictor {
-    
-    // declare variables
-    private(set) var results: MLMultiArray?
-    
-    func createImageClassifier() -> VNCoreMLModel{
-        
+/// A convenience class that makes image classification predictions.
+///
+/// The Image Predictor creates and reuses an instance of a Core ML image classifier inside a ``VNCoreMLRequest``.
+/// Each time it makes a prediction, the class:
+/// - Creates a `VNImageRequestHandler` with an image
+/// - Starts an image classification request for that image
+/// - Converts the prediction results in a completion handler
+/// - Updates the delegate's `predictions` property
+/// - Tag: ImagePredictor
+class ImagePredictor {
+    /// - Tag: name
+    static func createImageClassifier() -> VNCoreMLModel {
+        // Use a default model configuration.
         let defaultConfig = MLModelConfiguration()
-        
-        let model = try? Wadilo_ML_1(configuration: defaultConfig);
-        
-        guard let imageDetector = model else {
-            fatalError("App failed to create an image detector model instance.")
+
+        // Create an instance of the image classifier's wrapper class.
+        let imageClassifierWrapper = try? Wadilo_ML_1(configuration: defaultConfig)
+
+        guard let imageClassifier = imageClassifierWrapper else {
+            fatalError("App failed to create an image classifier model instance.")
         }
-        
+
         // Get the underlying model instance.
-        let ObjectDetectorModel = imageDetector.model
-        
+        let imageClassifierModel = imageClassifier.model
+
         // Create a Vision instance using the image classifier's model instance.
-        guard let imageClassifierVisionModel = try? VNCoreMLModel(for: ObjectDetectorModel) else {
+        guard let imageClassifierVisionModel = try? VNCoreMLModel(for: imageClassifierModel) else {
             fatalError("App failed to create a `VNCoreMLModel` instance.")
         }
 
         return imageClassifierVisionModel
-
     }
+
+    /// A common image classifier instance that all Image Predictor instances use to generate predictions.
+    ///
+    /// Share one ``VNCoreMLModel`` instance --- for each Core ML model file --- across the app,
+    /// since each can be expensive in time and resources.
+    private static let imageClassifier = createImageClassifier()
 
     /// Stores a classification name and confidence for an image classifier's prediction.
     /// - Tag: Prediction
@@ -72,7 +80,7 @@ struct ImagePredictor {
     /// - Parameter photo: An image, typically of an object or a scene.
     /// - Tag: makePredictions
     func makePredictions(for photo: UIImage, completionHandler: @escaping ImagePredictionHandler) throws {
-        let orientation = CGImagePropertyOrientation(photo.imageOrientation)
+        // let orientation = CGImagePropertyOrientation(rawValue: photo.imageOrientation)
 
         guard let photoImage = photo.cgImage else {
             fatalError("Photo doesn't have underlying CGImage.")
@@ -81,7 +89,7 @@ struct ImagePredictor {
         let imageClassificationRequest = createImageClassificationRequest()
         predictionHandlers[imageClassificationRequest] = completionHandler
 
-        let handler = VNImageRequestHandler(cgImage: photoImage, orientation: orientation)
+        let handler = VNImageRequestHandler(cgImage: photoImage)
         let requests: [VNRequest] = [imageClassificationRequest]
 
         // Start the image classification request.
@@ -135,7 +143,7 @@ struct ImagePredictor {
         predictions = observations.map { observation in
             // Convert each observation into an `ImagePredictor.Prediction` instance.
             Prediction(classification: observation.identifier,
-                       confidencePercentage: observation.confidencePercentageString)
+                       confidencePercentage: String(format: "%.2f", observation.confidence))
         }
     }
 }
